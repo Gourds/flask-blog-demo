@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Gourds index{% endblock %}
+{% block content %}
+<div class="content">
+    <div class="page-header">
+     <h1>Please Login</h1>
+        {{ form.hidden_tag() }}
+        {{ wtf.quick_form(form) }}
+    </div>
+</div>
+{% endblock content %}
+

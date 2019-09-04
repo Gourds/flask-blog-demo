@@ -5,7 +5,8 @@ class base_config():
 
 class development(base_config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + './data.sqlite'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///database/data.sqlite'
+    #sqlite:后面跟的3个斜杠表示相对路径，四个斜杠则表示是绝对路径
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     FLASKY_MAIL_SUBJECT_PREFIX = '[Gourds]'

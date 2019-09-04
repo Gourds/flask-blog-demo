@@ -1,14 +1,16 @@
 
-from flask import Blueprint,render_template,flash
-from app.views.forms import NameForm
+from flask import Blueprint,render_template,flash,request,redirect,url_for
+from app.views.forms import NameForm,LoginForm
+from flask_login import UserMixin,user_unauthorized
 
 mod = Blueprint('login',__name__)
 
 
 @mod.route('/login', methods=['GET','POST'])
 def login():
-    form = NameForm()
-    print(form.name)
-    print(form.pwd)
+    form = LoginForm()
+    if request.method == 'GET':
+        return render_template('auth.html',form=form)
     flash('success login')
-    return render_template('login.html', form=form)
+    print(request.form)
+    return redirect(url_for('index.index'))
