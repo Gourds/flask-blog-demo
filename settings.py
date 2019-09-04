@@ -1,8 +1,7 @@
 # -*- coding:utf-8 -*-
-import os
 
 class base_config():
-    SECRET_KEY = 'hello world'
+    SECRET_KEY = 'helloworld'
 
 class development(base_config):
     DEBUG = True
