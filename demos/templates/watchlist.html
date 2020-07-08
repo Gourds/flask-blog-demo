@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% from '_macro.html' import qux %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+{% block content %}
+<body>
+<a href="{{ url_for('index') }}">&larr; Return</a>
+<h2>{{ user.uisername }}</h2>
+{% if user.bio %}
+    <img src="{{ url_for('static', filename='taihe.png') }}" width="50">
+    <i>{{ user.username }}</i>
+{% endif %}
+{# 注释 #}
+<h5>{{ user.username }}'s Watchlist ({{ movies|length }}):</h5>
+<ul>
+    {% for movie in movies %}
+        <li>{{ movie.name }}</li>
+    {% endfor %}
+</ul>
+<h5>Hools,{{ foo }}</h5>
+<h5>{{ bar() }}</h5>
+<h5> {{ 'flask'|musical }}</h5>
+{% from '_macro.html' import qux %}
+<h5> {{ qux(amount=5) }} </h5>
+</body>
+{% endblock content %}

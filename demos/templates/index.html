@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% from '_macro.html' import qux %}
+
+{% block content %}
+{% set name='baz' %}
+<h1>Teplate</h1>
+<ul>
+    <li><a href="{{ url_for('watch_list') }}"> Watchlist</a> </li>
+    <li>Filter: {{ foo|musical }}</li>
+    <li>Global: {{ bar() }}</li>
+    <li>Test: {% if name is baz %} Iam Baz. {% endif %}</li>
+    <li>Macro: {{ qux(amount=5) }}</li>
+</ul>
+{% endblock content %}
+
+{% block styles %}
+{{ super() }}
+<style>
+    .foo {
+        color: red
+    }
+</style>
+{% endblock styles %}

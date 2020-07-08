@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+{% from '_macro.html' import static_file %}
+<head>
+
+    {{ static_file('icon','favicon.ico') }}
+    {% block head %}
+        <meta charset="utf-8">
+        <title>{% block title %} Template-Hello-Gruods{% endblock %}</title>
+    {% endblock %}
+</head>
+<body>
+<nav>
+    <ul><li><a href="{{ url_for('index') }}">Home</a> </li></ul>
+</nav>
+<main>
+    {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+    {% block content %} {% endblock %}
+</main>
+<footer>
+    {% block footer %}
+    ...
+    {% endblock %}
+</footer>
+    {% block scripts %}
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    {% endblock scripts %}
+</body>
+</html>
+
+{% block styles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+{% endblock styles %}
+
