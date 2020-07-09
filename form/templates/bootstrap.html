@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<form method="post">
+    {{ form.csrf_token }}
+    <div class="form-group">
+        {{ form.username.lable }}
+        {{ form.username(class='form-control') }}
+    </div>
+    <div class="form-group">
+        {{ form.password.lable }}
+        {{ form.password(class='form-control') }}
+    </div>
+    <div class="form-check">
+        {{ form.remember(class='form-check-input') }}
+        {{ form.remember.lable }}
+    </div>
+    {{ form.submit(class='btn btn-primary') }}
+</form>
+{% endblock content %}
